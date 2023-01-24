@@ -1,17 +1,19 @@
-package edu.cascadia.mobas.roomwordsample.data
+package edu.cascadia.mobas.roomwordsample
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import edu.cascadia.mobas.roomwordsample.data.Word
+import edu.cascadia.mobas.roomwordsample.data.WordDao
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class WordRoomDatabase {
-    @Database(entities = arrayOf(Word::class), version = 1, exportSchema = false)
-    abstract class WordRoomDatabase : RoomDatabase() {
+@Database(entities = arrayOf(Word::class), version = 1, exportSchema = false)
+abstract class WordRoomDatabase : RoomDatabase(){
 
         abstract fun wordDao(): WordDao
 
@@ -66,5 +68,4 @@ class WordRoomDatabase {
                 }
             }
         }
-    }
 }

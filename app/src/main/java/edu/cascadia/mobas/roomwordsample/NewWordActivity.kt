@@ -10,19 +10,16 @@ import android.widget.EditText
 import edu.cascadia.mobas.roomwordsample.databinding.ActivityMainBinding
 
 private lateinit var binding: ActivityMainBinding
-class NewWordActivity : AppCompatActivity() {
 
-    private lateinit var editWordView: EditText
+class NewWordActivity : AppCompatActivity() {
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        editWordView = findViewById(R.id.edit_word)
-
-        val button = findViewById<Button>(R.id.button_save)
-        button.setOnClickListener {
+        val editWordView = findViewById<EditText>(R.id.edit_word)
+        binding.fab.setOnClickListener {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(editWordView.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
